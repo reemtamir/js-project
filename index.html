@@ -22,28 +22,39 @@
       defer
       src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"
     ></script>
+    <script defer src="names.js"></script>
+
     <script defer src="script.js"></script>
   </head>
   <body>
     <h1>js project</h1>
-    <button class="btn" type="submit">click for color</button>
+    <!-- <button class="btn" type="submit">click for color</button> -->
 
-    <input
-      class="input-r"
-      type="number"
-      placeholder="Enter number between 0-225"
-    />
-    <input
-      class="input-g"
-      type="number"
-      placeholder="Enter number between 0-225"
-    />
-    <input
-      class="input-b"
-      type="number"
-      placeholder="Enter number between 0-225"
-    />
+    <div class="row w-50 m-auto mb-5">
+      <button class="btn btn-primary col-6" type="submit">
+        click for create color
+      </button>
+      <button class="favorite-btn btn btn-secondary col-6" type="submit">
+        click for adding to my favorite color
+      </button>
 
+      <input
+        class="input-r col"
+        type="number"
+        placeholder="Enter number (0-225)"
+      />
+      <input
+        class="input-g col"
+        type="number"
+        placeholder="Enter number (0-225)"
+      />
+      <input
+        class="input-b col"
+        type="number"
+        placeholder="Enter number (0-225)"
+      />
+    </div>
+    <div class="row"><p class="favorite col"></p></div>
     <div class="row">
       <div class="color col-6"></div>
       <div class="color-2 col-6"></div>
