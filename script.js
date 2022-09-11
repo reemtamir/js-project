@@ -1,11 +1,24 @@
 'use-strict';
-let myFavoritColors = [];
+
+let myFavoriteColors = [];
+let arrOfNames = [];
 const localStorageData = JSON.parse(localStorage.getItem('color'));
 let color;
 let isColored = false;
 let inputR = document.querySelector('.input-r');
 let inputG = document.querySelector('.input-g');
 let inputB = document.querySelector('.input-b');
+$('.test').hover(handlerIn, handlerOut);
+function handlerIn() {
+  let randomName = arrOfNames[Math.floor(Math.random() * arrOfNames.length)];
+  $('.test').css('background-color', randomName);
+}
+
+function handlerOut() {
+  let randomName = arrOfNames[Math.floor(Math.random() * arrOfNames.length)];
+  $('.test').css('background-color', randomName);
+}
+
 const btn = document
   .querySelector('.btn')
   .addEventListener('click', createColor);
@@ -15,12 +28,23 @@ const favoriteBtn = document
 $(window).on('load', showFavorite);
 function showFavorite() {
   if (!localStorageData) return;
-  myFavoritColors = localStorageData;
-  $('.favorite').text(
-    ` My favorite colors are: ${JSON.stringify(myFavoritColors)}
-    `
-  );
+  myFavoriteColors = localStorageData;
+  let n_match = [];
+  for (let key of myFavoriteColors) {
+    n_match.push(...key.split(' '));
+  }
+
+  let name = '';
+  let p = document.querySelector('.favorite');
+  p.innerHTML = 'My favorite colors are:';
+  for (let key in n_match) {
+    name = ntc.name(n_match[key]);
+    console.log(name[1]);
+    arrOfNames.push(name[1]);
+    p.innerHTML += `<span style="color:${name[1]}">${name[1]}</span> --> <span style="color:${name[1]}">${name[0]}</span> `;
+  }
 }
+
 function createColor() {
   if (
     Number(inputR.value) < 0 ||
@@ -37,7 +61,7 @@ function createColor() {
     $('.color').css('background-color', color);
     $('.color').css('color', 'white');
     $('.color').text(
-      `The chosen color is ${color} and the chosen color in ${'hexadic'.toLocaleUpperCase()} is ${rgb2hex(
+      `The chosen color is ${color} and the chosen color in ${'hexadic'.toUpperCase()} is ${rgb2hex(
         color
       )}`
     );
@@ -47,7 +71,7 @@ function createColor() {
     $('.color-2').css('background-color', color);
     $('.color-2').css('color', 'white');
     $('.color-2').text(
-      `The chosen color is ${color}  and the chosen color in  ${'hexadic'.toLocaleUpperCase()} is ${rgb2hex(
+      `The chosen color is ${color}  and the chosen color in  ${'hexadic'.toUpperCase()} is ${rgb2hex(
         color
       )}`
     );
@@ -58,8 +82,9 @@ function createColor() {
 }
 
 function addToFavorite() {
-  myFavoritColors.push(color);
-  localStorage.setItem('color', JSON.stringify(myFavoritColors));
+  myFavoriteColors.push(rgb2hex(color));
+
+  localStorage.setItem('color', JSON.stringify(myFavoriteColors));
 }
 function clearInputs() {
   inputR.value = '';
@@ -73,10 +98,3 @@ function rgb2hex(rgb) {
   }
   return '#' + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
 }
-
-function getColorName(arr) {
-  for (key of arr) {
-    console.log(key);
-  }
-}
-getColorName(localStorageData);
