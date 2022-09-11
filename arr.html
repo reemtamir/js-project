@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Arrays</title>
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
@@ -18,21 +18,53 @@
       integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
       crossorigin="anonymous"
     ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One:ital@1&family=Dancing+Script:wght@700&family=DynaPuff&family=Hind+Siliguri:wght@300&family=Inconsolata:wght@200;300&family=Lora:wght@500&family=Pattaya&family=Poppins&family=Roboto&family=Roboto+Mono:wght@200&family=Rubik+Moonrocks&family=Sacramento&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles/styles.css" />
     <script
       defer
       src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"
     ></script>
- 
-
 
     <script defer src="js/arr.js"></script>
   </head>
   <body>
-    <div style="height: 80vh" class="container"></div>
-    <div style="width: 200px" class="col-6 bg-warning m-auto">
-      <a style="text-decoration: none" class="text-dark" href="index.html"
-        >HomePage</a
+    <div style="height: 80vh" class="container overflow-auto">
+      <button class="btn btn-primary my-4" id="push-numbers">
+        pushNumbers
+      </button>
+      <button class="btn btn-secondary my-4" id="create-array">
+        createArray
+      </button>
+      <button class="btn btn-info my-4" id="create-random-array">
+        createRandomArray
+      </button>
+      <p class="description w-50 m-auto mb-3">
+        Insert number to the input and click on the pushNumbers button to fill
+        the array, when you are ready to create new array, click on the
+        createArray button and you will see a sort array. IF you want to create
+        random array, insert number who will be the number of the items in your
+        RandomArray and click on the createRandomArray button
+      </p>
+      <div class="row w-25 m-auto">
+        <input class="col" type="number" id="numbers" />
+      </div>
+
+      <p class="p"></p>
+      <div class="row">
+        <p class="sorted-arrays col overflow-auto"></p>
+      </div>
+    </div>
+    <div style="width: 200px" class="col-6 m-auto">
+      <a
+        style="text-decoration: none"
+        class="text-danger my-5 fs-4"
+        href="index.html"
+        >backToHomePage</a
       >
     </div>
     <footer>

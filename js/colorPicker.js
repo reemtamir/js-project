@@ -27,12 +27,12 @@ function showFavorite() {
 
   let name = '';
   let p = document.querySelector('.favorite');
-  p.innerHTML = 'My favorite colors are:';
+  p.innerHTML = ' <span class="fs-3">My favorite colors are:</span>  <br/>';
   for (let key in n_match) {
     name = ntc.name(n_match[key]);
-    console.log(name[1]);
     arrOfNames.push(name[1]);
-    p.innerHTML += `<span style="color:${name[1]}">${name[1]}</span> --> <span style="color:${name[1]}">${name[0]}</span> `;
+
+    p.innerHTML += `<span style="color:${name[0]}">${name[1]}</span> <span style="color:${name[0]}">${name[0]}</span> <br/> `;
   }
 }
 
@@ -89,11 +89,17 @@ function rgb2hex(rgb) {
   return '#' + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
 }
 function handlerIn() {
-  let randomName = arrOfNames[Math.floor(Math.random() * arrOfNames.length)];
-  $('.test').css('background-color', randomName);
+  if (myFavoriteColors.length === 0) return;
+  let randomHexNumber =
+    myFavoriteColors[Math.floor(Math.random() * myFavoriteColors.length)];
+  $('.test').css('background-color', randomHexNumber);
+  $('.test').text(`My favorite bgc`);
 }
 
 function handlerOut() {
-  let randomName = arrOfNames[Math.floor(Math.random() * arrOfNames.length)];
-  $('.test').css('background-color', randomName);
+  if (myFavoriteColors.length === 0) return;
+  let randomHexNumber =
+    myFavoriteColors[Math.floor(Math.random() * myFavoriteColors.length)];
+  $('.test').css('background-color', randomHexNumber);
+  $('.test').text(`My favorite bgc`);
 }

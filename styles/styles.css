@@ -10,6 +10,8 @@ body {
 }
 
 .test {
+  font-size: 2rem;
+  line-height: 3;
   margin: auto;
   width: 200px;
   height: 200px;
@@ -32,9 +34,14 @@ body {
 }
 
 .copyright {
-  font-family: "Dancing Script", cursive;
   color: "black";
   font-size: 20px;
   padding: 10px 0;
   text-align: center;
+}
+
+.description {
+  font-family: "Roboto Mono", monospace;
+  font-weight: 900;
+  color: lightcoral;
 }/*# sourceMappingURL=styles.css.map */
