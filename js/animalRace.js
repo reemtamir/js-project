@@ -95,7 +95,7 @@ let isGameOn = false;
 const imgContainer = document.querySelector('.img-container');
 const startBtn = document.querySelector('.start');
 startBtn.addEventListener('click', startGame);
-let interavl;
+
 function startGame() {
   if (isGameOn) return;
   isGameOn = true;
@@ -116,7 +116,7 @@ function startGame() {
         console.log(
           '*****************************************************************'
         );
-        isGameOn = false;
+
         steps = 50;
         key.pos = steps;
         // div.style.right = steps + 'px';
@@ -124,4 +124,6 @@ function startGame() {
       console.log('loop end');
     }, 200);
   }
+  isGameOn = false;
+  console.log('GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG');
 }
