@@ -10,12 +10,13 @@ let inputG = document.querySelector('.input-g');
 let inputB = document.querySelector('.input-b');
 $('.test').hover(handlerIn, handlerOut);
 const btn = document
-  .querySelector('.btn')
+  .querySelector('.add-btn')
   .addEventListener('click', createColor);
 const favoriteBtn = document
   .querySelector('.favorite-btn')
   .addEventListener('click', addToFavorite);
 $(window).on('load', showFavorite);
+let p = document.querySelector('.favorite');
 
 function showFavorite() {
   if (!localStorageData) return;
@@ -26,7 +27,6 @@ function showFavorite() {
   }
 
   let name = '';
-  let p = document.querySelector('.favorite');
   p.innerHTML = ' <span class="fs-3">My favorite colors are:</span>  <br/>';
   for (let key in n_match) {
     name = ntc.name(n_match[key]);
@@ -93,13 +93,24 @@ function handlerIn() {
   let randomHexNumber =
     myFavoriteColors[Math.floor(Math.random() * myFavoriteColors.length)];
   $('.test').css('background-color', randomHexNumber);
-  $('.test').text(`My favorite bgc`);
+  $('.test').text(` Favorite colors`);
 }
 
 function handlerOut() {
-  if (myFavoriteColors.length === 0) return;
+  if (myFavoriteColors.length === 0) {
+    $('.test').text(`No favorite colors yet 🌈`);
+    return;
+  }
   let randomHexNumber =
     myFavoriteColors[Math.floor(Math.random() * myFavoriteColors.length)];
   $('.test').css('background-color', randomHexNumber);
-  $('.test').text(`My favorite bgc`);
+  $('.test').text(` Favorite colors`);
 }
+
+$('.clear-storage').click(function () {
+  myFavoriteColors.length = 0;
+  p.innerHTML = '';
+  $('.test').css('background-color', 'white');
+  $('.test').text(`Hover me`);
+  localStorage.clear();
+});
