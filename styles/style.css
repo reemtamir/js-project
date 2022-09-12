@@ -46,7 +46,7 @@ body {
   color: lightcoral;
 }
 
-.container {
+.game-container {
   background-color: rgb(10, 10, 10);
   height: 2000px !important;
 }
