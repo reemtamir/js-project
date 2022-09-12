@@ -9,13 +9,14 @@ let runners = [
   //     stp: 50,
   //   },
 ];
-function Runner(name, id, voice, img, step) {
+function Runner(name, id, voice, img, speed, pos = 50) {
   {
     this.name = name;
     this.id = id;
     this.voice = voice;
     this.img = img;
-    this.step = step;
+    this.speed = speed;
+    this.pos = pos;
   }
   // makeSound;
 }
@@ -51,21 +52,16 @@ let chick = new Runner(
 
 runners.push(dog, horse, duck, chick);
 
-let card = document.querySelector('.cards-container');
-
+let imagContainer = document.querySelector('.img-container');
+$(window).on('load', createCards(runners));
 function createCards(arr) {
-  for (let key of runners) {
-    card.innerHTML += `  <div dir="ltr" class="card col " style="width: 120px">
-    <img  src="${key.img}" class="card-img-top" alt="${key.name}'s img" />
-<div class="card-body">
-  <h5 class="card-title">Runner's Name:   <span class="text-danger "> <span class="border-bottom"> ${key.name}</span></span></h5>
-</div>
-<ul class="list-group list-group-flush">
-  <li class="list-group-item">Runner's ID: <span class="border-bottom"> ${key.id}</span></li>
-  <button id="${key.id}" onclick="makeSound(id)"; class="btn"><li class="list-group-item">Runner's Voice:<span class="border-bottom"> ${key.voice}</span></li></button> 
-  <li class="list-group-item">Runner's Steps: <span class="border-bottom"> ${key.step}</span></li>
-</ul>
+  for (let key of arr) {
+    let div = document.createElement('div');
+    div.innerHTML += `  <div style="width:50px" id="${key.id}" dir="ltr" onclick="makeSound(id)"  class="my-5" >
+    <img style="height:80px; width:80px"  src="${key.img}"alt="${key.name}'s img" />
+ 
   </div>`;
+    imagContainer.appendChild(div);
   }
 }
 
@@ -73,38 +69,59 @@ const dogAudio = new Audio('sounds/dog.mp3');
 const horseAudio = new Audio('sounds/horse.mp3');
 const duckAudio = new Audio('sounds/duck.mp3');
 const chickAudio = new Audio('sounds/chick.wav');
-createCards(runners);
-console.log(card);
 
 function makeSound(id) {
   switch (id) {
     case 'dog':
-      console.log(id);
       dogAudio.play();
       dogAudio.currentTime = 0;
       break;
 
     case 'horse':
-      console.log(id);
       horseAudio.play();
       horseAudio.currentTime = 0;
       break;
     case 'duck':
-      console.log(id);
       duckAudio.play();
       duckAudio.currentTime = 0;
       break;
     case 'chick':
-      console.log(id);
       chickAudio.play();
       chickAudio.currentTime = 0;
       break;
   }
 }
+let isGameOn = false;
+const imgContainer = document.querySelector('.img-container');
 const startBtn = document.querySelector('.start');
 startBtn.addEventListener('click', startGame);
-let steps = 0;
+let interavl;
 function startGame() {
-  steps += 10;
-  card.style.right = steps + 'px';
+  if (isGameOn) return;
+  isGameOn = true;
+  console.log('start');
+  for (let key of runners) {
+    console.log('loop start');
+    let steps = key.pos;
+    let speed = key.speed;
+    let div = document.getElementById(`${key.id}`);
+    let intervalId = setInterval(() => {
+      steps += speed;
+      key.pos = steps;
+      console.log(key.pos);
+      console.log(steps);
+      div.style.right = steps + 'px';
+      if (key.pos >= 1700) {
+        clearInterval(intervalId);
+        console.log(
+          '*****************************************************************'
+        );
+        isGameOn = false;
+        steps = 50;
+        key.pos = steps;
+        // div.style.right = steps + 'px';
+      }
+      console.log('loop end');
+    }, 200);
+  }
 }

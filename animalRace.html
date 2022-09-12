@@ -17,16 +17,40 @@
       integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
       crossorigin="anonymous"
     ></script>
+    <script
+      defer
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    ></script>
     <link rel="stylesheet" href="styles/style.css" />
     <script defer src="js/animalRace.js"></script>
   </head>
   <body>
     <h1>AnimalRace</h1>
-    <button class="btn btn-primary start">Start</button>
-    <div class=" game-container">
+    <button class="btn btn-primary start my-3">Start</button>
+
+    <div class="game-container">
       <div class="running-track">
-        <div dir="rtl" class="m-auto cards-container"></div>
+        <div dir="rtl" class="m-auto img-container"></div>
       </div>
     </div>
+    <div style="width: 200px" class="col-6 m-auto mt-5">
+      <a
+        style="text-decoration: none"
+        class="text-danger my-5 fs-4"
+        href="index.html"
+        >backToHomePage</a
+      >
+    </div>
+    <footer>
+      <div class="footer">
+        <a href="https://www.linkedin.com/" target="_blank"
+          ><img src="imgs/linkedin-logo.png" alt="linkedin-logo"
+        /></a>
+        <a href="https://github.com/reemtamir" target="_blank"
+          ><img src="imgs/github-sign.png" alt="github-logo"
+        /></a>
+      </div>
+      <p class="copyright"><span>&copy;</span> 2022 Re'em Tamir</p>
+    </footer>
   </body>
 </html>

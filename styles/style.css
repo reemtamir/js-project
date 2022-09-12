@@ -47,15 +47,30 @@ body {
 }
 
 .game-container {
-  background-color: rgb(10, 10, 10);
-  height: 2000px !important;
+  height: 800px;
 }
 
 .running-track {
-  padding-top: 10%;
+  margin: auto;
+  height: 700px;
+  background-color: black;
 }
 
-.cards-container {
+.img-container {
+  height: 600px;
+  padding: 1px;
   position: relative;
-  right: 0;
+  right: 50px;
+}
+
+.display-none {
+  display: none;
+}
+
+#dog,
+#horse,
+#duck,
+#chick {
+  position: relative;
+  right: 50px;
 }/*# sourceMappingURL=style.css.map */

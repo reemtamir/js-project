@@ -1,14 +1,27 @@
 .game-container {
-  background-color: rgb(10, 10, 10);
-  height: 2000px !important;
+  // background-color: aquamarine;
+  height: 800px;
   // width: 100%;
 }
 .running-track {
-  // height: 1900px !important;
-  // background-color: rgb(194, 101, 101);
-  padding-top: 10%;
+  margin: auto;
+  height: 700px;
+  background-color: black;
 }
-.cards-container {
+.img-container {
+  // background-color: rgb(10, 10, 10);
+  height: 600px;
+  padding: 1px;
   position: relative;
-  right: 0;
+  right: 50px;
+}
+.display-none {
+  display: none;
+}
+#dog,
+#horse,
+#duck,
+#chick {
+  position: relative;
+  right: 50px;
 }
