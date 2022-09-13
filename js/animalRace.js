@@ -99,31 +99,35 @@ startBtn.addEventListener('click', startGame);
 function startGame() {
   if (isGameOn) return;
   isGameOn = true;
-  console.log('start');
+
   for (let key of runners) {
-    console.log('loop start');
     let steps = key.pos;
+
     let speed = key.speed;
     let div = document.getElementById(`${key.id}`);
-    let intervalId = setInterval(() => {
-      steps += speed;
-      key.pos = steps;
-      console.log(key.pos);
-      console.log(steps);
-      div.style.right = steps + 'px';
-      if (key.pos >= 1700) {
-        clearInterval(intervalId);
-        console.log(
-          '*****************************************************************'
-        );
 
-        steps = 50;
+    let intervalId = setInterval(() => {
+      if (isGameOn) {
+        console.log('interval on');
+        console.log(key.name, intervalId);
+        steps += speed;
         key.pos = steps;
-        // div.style.right = steps + 'px';
+
+        div.style.right = steps + 'px';
+
+        if (key.pos >= 700) {
+          clearInterval(intervalId);
+          console.log('winner');
+          console.log(`${key.name} win`);
+          console.log(`clear interval`);
+
+          steps = 50;
+          key.pos = steps;
+          // div.style.right = steps + 'px';
+
+          isGameOn = false;
+        }
       }
-      console.log('loop end');
     }, 200);
   }
-  isGameOn = false;
-  console.log('GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG');
 }
