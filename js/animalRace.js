@@ -80,7 +80,6 @@ function chooseRunner(id) {
       dogAudio.currentTime = 0;
       makeImageBigger(0);
       h3.innerHTML = ` ${id.toUpperCase()}  has chosen`;
-
       break;
 
     case 'horse':
@@ -88,7 +87,6 @@ function chooseRunner(id) {
       horseAudio.currentTime = 0;
       makeImageBigger(1);
       h3.innerHTML = ` ${id.toUpperCase()}  has chosen`;
-
       break;
 
     case 'duck':
@@ -96,8 +94,8 @@ function chooseRunner(id) {
       duckAudio.currentTime = 0;
       makeImageBigger(2);
       h3.innerHTML = ` ${id.toUpperCase()}  has chosen`;
-
       break;
+
     case 'chick':
       // chickAudio.play();
       chickAudio.currentTime = 0;
@@ -109,7 +107,6 @@ function chooseRunner(id) {
 function makeImageBigger(i) {
   imagContainer.children[i].children[0].children[0].style.height = 100 + 'px';
   imagContainer.children[i].children[0].children[0].style.width = 100 + 'px';
-
   setTimeout(() => {
     imagContainer.children[i].children[0].children[0].style.height = 80 + 'px';
     imagContainer.children[i].children[0].children[0].style.width = 80 + 'px';
@@ -122,6 +119,7 @@ const startBtn = document.querySelector('.start');
 startBtn.addEventListener('click', startGame);
 let interval;
 function startGame() {
+  h3.innerHTML = '';
   if (isGameOn) return;
   isGameOn = true;
   let intervalId = setInterval(() => {
