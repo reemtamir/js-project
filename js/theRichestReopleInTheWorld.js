@@ -13,11 +13,9 @@ richestPeople.map(
       </ul>
       </div>`)
 );
-let images = document.querySelectorAll('.img');
-images.forEach((image) => image.addEventListener('click', deleteElement));
+addFnToElement();
 function deleteElement(ev) {
   richestPeople = richestPeople.filter((item) => item.id !== ev.target.id);
-  console.log(richestPeople);
   renderPage(richestPeople);
 }
 
@@ -43,7 +41,9 @@ function renderPage(arr) {
   }
 
   cardsContainer.innerHTML = html;
-
+  addFnToElement();
+}
+function addFnToElement() {
   let images = document.querySelectorAll('.img');
   images.forEach((image) => image.addEventListener('click', deleteElement));
 }
