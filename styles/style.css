@@ -80,6 +80,10 @@ body {
   width: 80px;
 }
 
+.h3 {
+  height: 35px;
+}
+
 .card {
   max-width: 300px !important;
 }

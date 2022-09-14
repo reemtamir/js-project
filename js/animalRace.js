@@ -59,7 +59,7 @@ $(window).on('load', createCards(runners));
 function createCards(arr) {
   for (let key of arr) {
     let div = document.createElement('div');
-    div.innerHTML += `  <div style="width:50px" id="${key.id}" dir="ltr" onclick="makeSound(id)"  class="my-5" >
+    div.innerHTML += `  <div style="width:50px" id="${key.id}" dir="ltr" onclick="chooseRunner(id)"  class="my-5" >
     <img class="img"  src="${key.img}"alt="${key.name}'s img" />
  
   </div>`;
@@ -71,33 +71,38 @@ const dogAudio = new Audio('sounds/dog.mp3');
 const horseAudio = new Audio('sounds/horse.mp3');
 const duckAudio = new Audio('sounds/duck.mp3');
 const chickAudio = new Audio('sounds/chick.wav');
-
-function makeSound(id) {
+let h3 = document.querySelector('.h3');
+function chooseRunner(id) {
   if (isGameOn) return;
   switch (id) {
     case 'dog':
-      dogAudio.play();
+      // dogAudio.play();
       dogAudio.currentTime = 0;
       makeImageBigger(0);
+      h3.innerHTML = ` ${id.toUpperCase()}  has chosen`;
+
       break;
 
     case 'horse':
-      horseAudio.play();
+      // horseAudio.play();
       horseAudio.currentTime = 0;
       makeImageBigger(1);
+      h3.innerHTML = ` ${id.toUpperCase()}  has chosen`;
+
       break;
 
     case 'duck':
-      duckAudio.play();
+      // duckAudio.play();
       duckAudio.currentTime = 0;
       makeImageBigger(2);
+      h3.innerHTML = ` ${id.toUpperCase()}  has chosen`;
 
       break;
     case 'chick':
-      chickAudio.play();
+      // chickAudio.play();
       chickAudio.currentTime = 0;
       makeImageBigger(3);
-
+      h3.innerHTML = ` ${id.toUpperCase()}  has chosen`;
       break;
   }
 }
@@ -109,6 +114,8 @@ function makeImageBigger(i) {
     imagContainer.children[i].children[0].children[0].style.height = 80 + 'px';
     imagContainer.children[i].children[0].children[0].style.width = 80 + 'px';
   }, 2000);
+
+  return imagContainer.children[i].children[0].id;
 }
 let isGameOn = false;
 const startBtn = document.querySelector('.start');
