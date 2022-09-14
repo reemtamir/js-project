@@ -73,4 +73,9 @@ body {
 #chick {
   position: relative;
   right: 50px;
+}
+
+.card {
+  max-width: 300px !important;
+  background-color: aqua;
 }/*# sourceMappingURL=style.css.map */

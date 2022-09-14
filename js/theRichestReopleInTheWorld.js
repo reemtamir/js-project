@@ -15,7 +15,6 @@ richestPeople.map(
 );
 let images = document.querySelectorAll('.img');
 images.forEach((image) => image.addEventListener('click', deleteElement));
-console.log(cardsContainer);
 function deleteElement(ev) {
   richestPeople = richestPeople.filter((item) => item.id !== ev.target.id);
   console.log(richestPeople);
