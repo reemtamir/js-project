@@ -84,7 +84,7 @@ body {
   height: 35px;
 }
 
-.card {
+.max-width {
   max-width: 300px !important;
 }
 

@@ -2,8 +2,8 @@
 let cardsContainer = document.querySelector('.container');
 richestPeople.map(
   (item) =>
-    (cardsContainer.innerHTML += `<div class="card col" >
-      <img id="${item.id}" src="${item.image}" class="card-img-top img" alt="${item.name}'s image" />
+    (cardsContainer.innerHTML += `<div class="card col  " >
+      <img  id="${item.id}" src="${item.image}" class="card-img-top img m-auto" alt="${item.name}'s image" />
       <div class="card-body">
         <h5 class="card-title ">${item.name}</h5>
       </div>
@@ -34,6 +34,9 @@ function createCard(item) {
   return res;
 }
 function renderPage(arr) {
+  if (arr.length <= 2) {
+    cardsContainer.classList.add('max-width');
+  }
   let html = '';
   for (let item of arr) {
     const str = createCard(item);
