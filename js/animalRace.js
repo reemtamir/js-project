@@ -131,7 +131,7 @@ function startGame() {
 
         div.style.right = key.pos + 'px';
 
-        if (key.pos >= 800) {
+        if (key.pos >= 1700) {
           clearInterval(intervalId);
           let nameToUpper = '' + key.name;
           h2.innerText = `${nameToUpper.toUpperCase()} WINS 🥇🏃‍♂️`;
