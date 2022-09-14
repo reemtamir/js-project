@@ -1,4 +1,24 @@
 .card {
   max-width: 300px !important;
-  background-color: aqua;
+}
+.h2 {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  position: relative;
+  animation: move 5s forwards;
+}
+@keyframes move {
+  0% {
+    left: -1500px;
+  }
+  25% {
+    color: red;
+  }
+  50% {
+    color: blue;
+  }
+  100% {
+    left: 0;
+    color: aqua;
+  }
 }

@@ -77,5 +77,43 @@ body {
 
 .card {
   max-width: 300px !important;
-  background-color: aqua;
+}
+
+.h2 {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  position: relative;
+  -webkit-animation: move 5s forwards;
+          animation: move 5s forwards;
+}
+
+@-webkit-keyframes move {
+  0% {
+    left: -1500px;
+  }
+  25% {
+    color: red;
+  }
+  50% {
+    color: blue;
+  }
+  100% {
+    left: 0;
+    color: aqua;
+  }
+}
+
+@keyframes move {
+  0% {
+    left: -1500px;
+  }
+  25% {
+    color: red;
+  }
+  50% {
+    color: blue;
+  }
+  100% {
+    left: 0;
+    color: aqua;
+  }
 }/*# sourceMappingURL=style.css.map */
