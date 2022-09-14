@@ -1,7 +1,5 @@
 'use strict';
-function init() {
-  runners.push(dog, horse, duck, chick);
-}
+let h2 = document.querySelector('.winner');
 let runners = [
   //   dog: {
   //     name: 'dog',
@@ -11,7 +9,7 @@ let runners = [
   //     stp: 50,
   //   },
 ];
-function Runner(name, id, voice, img, speed, pos = 50) {
+function Runner(name, id, voice, img, speed, pos = 0) {
   {
     this.name = name;
     this.id = id;
@@ -20,7 +18,6 @@ function Runner(name, id, voice, img, speed, pos = 50) {
     this.speed = speed;
     this.pos = pos;
   }
-  // makeSound;
 }
 
 let dog = new Runner(
@@ -28,32 +25,35 @@ let dog = new Runner(
   'dog',
   'woof',
   'https://w7.pngwing.com/pngs/411/116/png-transparent-dog-cartoon-illustration-cute-dog-mammal-painted-animals.png',
-  50
+
+  Math.floor(Math.random() * 30) + 15
 );
 let horse = new Runner(
   'horse',
   'horse',
   'neigh',
   'https://i.pinimg.com/originals/ae/f5/0a/aef50a29f12e06db36021a71a8d7b6cc.gif',
-  70
+
+  Math.floor(Math.random() * 30) + 15
 );
 let duck = new Runner(
   'duck',
   'duck',
   'quack',
   'https://i.pinimg.com/736x/76/22/f3/7622f3dee575dd89f6f6ee446794b1b4.jpg',
-  40
+
+  Math.floor(Math.random() * 30) + 15
 );
 let chick = new Runner(
   'chick',
   'chick',
   'cheap',
   'https://us.123rf.com/450wm/topvectors/topvectors1905/topvectors190500866/123035073-rooster-with-bright-plumage-farm-cock-running-poultry-farming-vector-illustration-on-white-backgroun.jpg?ver=6',
-  30
+
+  Math.floor(Math.random() * 30) + 15
 );
 
 runners.push(dog, horse, duck, chick);
-
 let imagContainer = document.querySelector('.img-container');
 $(window).on('load', createCards(runners));
 function createCards(arr) {
@@ -94,7 +94,6 @@ function makeSound(id) {
   }
 }
 let isGameOn = false;
-const imgContainer = document.querySelector('.img-container');
 const startBtn = document.querySelector('.start');
 startBtn.addEventListener('click', startGame);
 let interval;
@@ -107,20 +106,26 @@ function startGame() {
         key.pos += key.speed;
 
         let div = document.getElementById(`${key.id}`);
-        console.log('interval on');
-        console.log(key.name, intervalId);
 
         div.style.right = key.pos + 'px';
 
-        if (key.pos >= 700) {
+        if (key.pos >= 800) {
           clearInterval(intervalId);
-          console.log('winner');
-          console.log(`${key.name} win`);
-          console.log(`clear interval`);
-
+          let nameToUpper = '' + key.name;
+          h2.innerText = `${nameToUpper.toUpperCase()} WINS 🥇🏃‍♂️`;
           isGameOn = false;
         }
       }
     }
-  }, 200);
+  }, 300);
+}
+function reset() {
+  if (isGameOn) return;
+  h2.innerText = '';
+  for (let key of runners) {
+    let div = document.getElementById(`${key.id}`);
+    key.pos = 0;
+    div.style.right = key.pos + 'px';
+    key.speed = Math.floor(Math.random() * 30) + 15;
+  }
 }

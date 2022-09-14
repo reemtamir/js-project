@@ -22,13 +22,18 @@
       src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"
     ></script>
     <link rel="stylesheet" href="styles/style.css" />
+    <script
+      defer
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    ></script>
     <script defer src="js/animalRace.js"></script>
   </head>
   <body>
-    <h1>AnimalRace</h1>
+    <h1>Animal Race</h1>
     <button class="btn btn-primary start my-3">Start</button>
-
+    <button onclick="reset()" class="btn btn-secondary reset">Reset</button>
     <div class="game-container">
+      <h2 style="height: 40px" class="winner"></h2>
       <div class="running-track">
         <div dir="rtl" class="m-auto img-container"></div>
       </div>
