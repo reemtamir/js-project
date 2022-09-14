@@ -76,28 +76,28 @@ function chooseRunner(id) {
   if (isGameOn) return;
   switch (id) {
     case 'dog':
-      // dogAudio.play();
+      dogAudio.play();
       dogAudio.currentTime = 0;
       makeImageBigger(0);
       h3.innerHTML = ` ${id.toUpperCase()}  has chosen`;
       break;
 
     case 'horse':
-      // horseAudio.play();
+      horseAudio.play();
       horseAudio.currentTime = 0;
       makeImageBigger(1);
       h3.innerHTML = ` ${id.toUpperCase()}  has chosen`;
       break;
 
     case 'duck':
-      // duckAudio.play();
+      duckAudio.play();
       duckAudio.currentTime = 0;
       makeImageBigger(2);
       h3.innerHTML = ` ${id.toUpperCase()}  has chosen`;
       break;
 
     case 'chick':
-      // chickAudio.play();
+      chickAudio.play();
       chickAudio.currentTime = 0;
       makeImageBigger(3);
       h3.innerHTML = ` ${id.toUpperCase()}  has chosen`;
