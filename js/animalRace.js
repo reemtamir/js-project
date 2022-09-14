@@ -1,5 +1,7 @@
 'use strict';
-
+function init() {
+  runners.push(dog, horse, duck, chick);
+}
 let runners = [
   //   dog: {
   //     name: 'dog',
@@ -95,25 +97,20 @@ let isGameOn = false;
 const imgContainer = document.querySelector('.img-container');
 const startBtn = document.querySelector('.start');
 startBtn.addEventListener('click', startGame);
-
+let interval;
 function startGame() {
   if (isGameOn) return;
   isGameOn = true;
+  let intervalId = setInterval(() => {
+    if (isGameOn) {
+      for (let key of runners) {
+        key.pos += key.speed;
 
-  for (let key of runners) {
-    let steps = key.pos;
-
-    let speed = key.speed;
-    let div = document.getElementById(`${key.id}`);
-
-    let intervalId = setInterval(() => {
-      if (isGameOn) {
+        let div = document.getElementById(`${key.id}`);
         console.log('interval on');
         console.log(key.name, intervalId);
-        steps += speed;
-        key.pos = steps;
 
-        div.style.right = steps + 'px';
+        div.style.right = key.pos + 'px';
 
         if (key.pos >= 700) {
           clearInterval(intervalId);
@@ -121,13 +118,9 @@ function startGame() {
           console.log(`${key.name} win`);
           console.log(`clear interval`);
 
-          steps = 50;
-          key.pos = steps;
-          // div.style.right = steps + 'px';
-
           isGameOn = false;
         }
       }
-    }, 200);
-  }
+    }
+  }, 200);
 }
