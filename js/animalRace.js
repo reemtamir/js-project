@@ -72,6 +72,12 @@ const horseAudio = new Audio('sounds/horse.mp3');
 const duckAudio = new Audio('sounds/duck.mp3');
 const chickAudio = new Audio('sounds/chick.wav');
 let h3 = document.querySelector('.h3');
+function Player(plyerName, points) {
+  this.plyerName = plyerName;
+  this.points = 100;
+}
+const player1 = new Player('Omer', 100);
+console.log(player1);
 function chooseRunner(id) {
   if (isGameOn) return;
   switch (id) {
@@ -79,13 +85,17 @@ function chooseRunner(id) {
       dogAudio.play();
       dogAudio.currentTime = 0;
       makeImageBigger(0);
-      h3.innerHTML = ` ${id.toUpperCase()}  has chosen`;
+      h3.innerHTML = `${
+        player1.plyerName
+      } has chosen the  ${id.toUpperCase()}  `;
+
       break;
 
     case 'horse':
       horseAudio.play();
       horseAudio.currentTime = 0;
       makeImageBigger(1);
+
       h3.innerHTML = ` ${id.toUpperCase()}  has chosen`;
       break;
 
@@ -94,6 +104,7 @@ function chooseRunner(id) {
       duckAudio.currentTime = 0;
       makeImageBigger(2);
       h3.innerHTML = ` ${id.toUpperCase()}  has chosen`;
+
       break;
 
     case 'chick':
@@ -101,9 +112,11 @@ function chooseRunner(id) {
       chickAudio.currentTime = 0;
       makeImageBigger(3);
       h3.innerHTML = ` ${id.toUpperCase()}  has chosen`;
+
       break;
   }
 }
+
 function makeImageBigger(i) {
   imagContainer.children[i].children[0].children[0].style.height = 100 + 'px';
   imagContainer.children[i].children[0].children[0].style.width = 100 + 'px';
