@@ -75,6 +75,7 @@ function createColor() {
 function addToFavorite() {
   myFavoriteColors.push(rgb2hex(color));
   localStorage.setItem('color', JSON.stringify(myFavoriteColors));
+  showFavorite();
 }
 function clearInputs() {
   inputR.value = '';
