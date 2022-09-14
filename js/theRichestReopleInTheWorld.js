@@ -2,7 +2,7 @@
 let cardsContainer = document.querySelector('.container');
 richestPeople.map(
   (item) =>
-    (cardsContainer.innerHTML += `<div class="card col" style="width: 18rem">
+    (cardsContainer.innerHTML += `<div class="card col" >
       <img id="${item.id}" src="${item.image}" class="card-img-top img" alt="${item.name}'s image" />
       <div class="card-body">
         <h5 class="card-title ">${item.name}</h5>
@@ -15,13 +15,15 @@ richestPeople.map(
 );
 let images = document.querySelectorAll('.img');
 images.forEach((image) => image.addEventListener('click', deleteElement));
+console.log(cardsContainer);
 function deleteElement(ev) {
   richestPeople = richestPeople.filter((item) => item.id !== ev.target.id);
+  console.log(richestPeople);
   renderPage(richestPeople);
 }
 
 function createCard(item) {
-  let res = `<div class="card col" style="width: 18rem">
+  let res = `<div class="card col" >
     <img id="${item.id}" src="${item.image}" class="card-img-top img" alt="${item.name}'s image" />
     <div class="card-body">
       <h5 class="card-title ">${item.name}</h5>
