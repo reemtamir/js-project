@@ -60,7 +60,7 @@ function createCards(arr) {
   for (let key of arr) {
     let div = document.createElement('div');
     div.innerHTML += `  <div style="width:50px" id="${key.id}" dir="ltr" onclick="makeSound(id)"  class="my-5" >
-    <img style="height:80px; width:80px"  src="${key.img}"alt="${key.name}'s img" />
+    <img class="img"  src="${key.img}"alt="${key.name}'s img" />
  
   </div>`;
     imagContainer.appendChild(div);
@@ -73,25 +73,42 @@ const duckAudio = new Audio('sounds/duck.mp3');
 const chickAudio = new Audio('sounds/chick.wav');
 
 function makeSound(id) {
+  if (isGameOn) return;
   switch (id) {
     case 'dog':
       dogAudio.play();
       dogAudio.currentTime = 0;
+      makeImageBigger(0);
       break;
 
     case 'horse':
       horseAudio.play();
       horseAudio.currentTime = 0;
+      makeImageBigger(1);
       break;
+
     case 'duck':
       duckAudio.play();
       duckAudio.currentTime = 0;
+      makeImageBigger(2);
+
       break;
     case 'chick':
       chickAudio.play();
       chickAudio.currentTime = 0;
+      makeImageBigger(3);
+
       break;
   }
+}
+function makeImageBigger(i) {
+  imagContainer.children[i].children[0].children[0].style.height = 100 + 'px';
+  imagContainer.children[i].children[0].children[0].style.width = 100 + 'px';
+
+  setTimeout(() => {
+    imagContainer.children[i].children[0].children[0].style.height = 80 + 'px';
+    imagContainer.children[i].children[0].children[0].style.width = 80 + 'px';
+  }, 2000);
 }
 let isGameOn = false;
 const startBtn = document.querySelector('.start');

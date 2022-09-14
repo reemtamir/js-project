@@ -75,6 +75,11 @@ body {
   right: 0;
 }
 
+.img {
+  height: 80px;
+  width: 80px;
+}
+
 .card {
   max-width: 300px !important;
 }
