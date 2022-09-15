@@ -84,6 +84,15 @@ body {
   height: 35px;
 }
 
+.end {
+  background-color: rgb(255, 255, 255);
+  color: white;
+  width: 10px;
+  height: 700px;
+  position: absolute;
+  right: 1600px;
+}
+
 .max-width {
   max-width: 300px !important;
 }

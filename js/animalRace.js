@@ -72,12 +72,7 @@ const horseAudio = new Audio('sounds/horse.mp3');
 const duckAudio = new Audio('sounds/duck.mp3');
 const chickAudio = new Audio('sounds/chick.wav');
 let h3 = document.querySelector('.h3');
-function Player(plyerName, points) {
-  this.plyerName = plyerName;
-  this.points = 100;
-}
-const player1 = new Player('Omer', 100);
-console.log(player1);
+
 function chooseRunner(id) {
   if (isGameOn) return;
   switch (id) {
@@ -85,9 +80,7 @@ function chooseRunner(id) {
       dogAudio.play();
       dogAudio.currentTime = 0;
       makeImageBigger(0);
-      h3.innerHTML = `${
-        player1.plyerName
-      } has chosen the  ${id.toUpperCase()}  `;
+      h3.innerHTML = ` ${id.toUpperCase()}  has chosen`;
 
       break;
 
@@ -121,6 +114,7 @@ function makeImageBigger(i) {
   imagContainer.children[i].children[0].children[0].style.height = 100 + 'px';
   imagContainer.children[i].children[0].children[0].style.width = 100 + 'px';
   setTimeout(() => {
+    h3.innerHTML = ``;
     imagContainer.children[i].children[0].children[0].style.height = 80 + 'px';
     imagContainer.children[i].children[0].children[0].style.width = 80 + 'px';
   }, 2000);
@@ -144,7 +138,7 @@ function startGame() {
 
         div.style.right = key.pos + 'px';
 
-        if (key.pos >= 1700) {
+        if (key.pos >= 1500) {
           clearInterval(intervalId);
           let nameToUpper = '' + key.name;
           h2.innerText = `${nameToUpper.toUpperCase()} WINS 🥇🏃‍♂️`;
