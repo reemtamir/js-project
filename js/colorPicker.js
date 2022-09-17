@@ -52,7 +52,7 @@ function createColor() {
     $('.color').css('background-color', color);
     $('.color').css('color', 'white');
     $('.color').text(
-      `The chosen color is ${color} and the chosen color in 'HEXADEC' is ${rgb2hex(
+      `The chosen color is ${color} and the chosen color in HEXADEC is ${rgb2hex(
         color
       )}`
     );
@@ -62,7 +62,7 @@ function createColor() {
     $('.color-2').css('background-color', color);
     $('.color-2').css('color', 'white');
     $('.color-2').text(
-      `The chosen color is ${color}  and the chosen color in  'HEXADEC' is ${rgb2hex(
+      `The chosen color is ${color}  and the chosen color in  HEXADEC is ${rgb2hex(
         color
       )}`
     );
