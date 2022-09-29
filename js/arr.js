@@ -46,14 +46,12 @@ function renderP() {
   }
 }
 function sort(arr) {
-  let Arr = arr;
-
-  for (let i = 1; i < Arr.length; i++)
+  for (let i = 1; i < arr.length; i++)
     for (let j = 0; j < i; j++)
-      if (Arr[i] < Arr[j]) {
-        let x = Arr[i];
-        Arr[i] = Arr[j];
-        Arr[j] = x;
+      if (arr[i] < arr[j]) {
+        let x = arr[i];
+        arr[i] = arr[j];
+        arr[j] = x;
       }
-  return Arr;
+  return arr;
 }

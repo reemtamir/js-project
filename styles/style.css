@@ -93,11 +93,7 @@ body {
   right: 1600px;
 }
 
-.max-width {
-  max-width: 300px !important;
-}
-
-.h2 {
+.message {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   position: relative;
   -webkit-animation: move 5s forwards;
@@ -134,4 +130,9 @@ body {
     left: 0;
     color: aqua;
   }
+}
+.card img {
+  width: 100px;
+  height: 100px;
+  margin: auto;
 }/*# sourceMappingURL=style.css.map */

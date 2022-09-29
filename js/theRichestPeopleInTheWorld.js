@@ -19,24 +19,21 @@ function deleteElement(ev) {
   renderPage(richestPeople);
 }
 
-function createCard(item) {
+function createCard(person) {
   let res = `<div class="card col" >
-    <img id="${item.id}" src="${item.image}" class="card-img-top img" alt="${item.name}'s image" />
+    <img id="${person.id}" src="${person.image}" class="card-img-top img" alt="${item.name}'s image" />
     <div class="card-body">
-      <h5 class="card-title ">${item.name}</h5>
+      <h6 class="card-title  ">${person.name}</h6>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">${item.worth}</li>
-      <li class="list-group-item">A ${item.source}</li>
+      <li class="list-group-item">${person.worth}</li>
+      <li class="list-group-item">A ${person.source}</li>
     </ul>
     </div>`;
 
   return res;
 }
 function renderPage(arr) {
-  if (arr.length <= 2) {
-    cardsContainer.classList.add('max-width');
-  }
   let html = '';
   for (let item of arr) {
     const str = createCard(item);
